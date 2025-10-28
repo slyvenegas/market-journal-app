@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Market Journal App
 
-## Getting Started
+> **Stock Market App — Alerts, Charts, AI Insights**
+>
+> Aplicación financiera moderna con Next.js, TypeScript, Shadcn y funcionalidades impulsadas por IA para alertas, resúmenes y análisis en tiempo real.
 
-First, run the development server:
+---
+
+## ✨ Sobre el proyecto
+
+MJ App es una aplicación de mercado de valores diseñada para monitorear precios en tiempo real, gestionar watchlists, recibir alertas personalizadas y explorar insights financieros generados por IA. Incluye un panel de administración para gestionar acciones, noticias y actividad de usuarios. Los flujos en background (Inngest) permiten automatizar alertas, resúmenes diarios y análisis de sentimiento.
+
+---
+
+## 🔋 Tech Stack
+
+* **Frontend:** Next.js, React, Shadcn, Tailwind CSS, TypeScript
+* **Backend / Serverless:** Next.js API Routes
+* **Autenticación:** Better Auth
+* **Workflows / Jobs:** Inngest
+* **Datos de mercado:** Finnhub
+* **Base de datos:** MongoDB
+* **Emails:** Nodemailer
+* **Utilidades:** Docker (opcional), Vercel (despliegue)
+
+---
+
+## 🔋 Características principales
+
+* Dashboard con precios en tiempo real y gráficas (line & candlestick)
+* Watchlist personalizable
+* Alertas por cambios de precio o volumen (correo electrónico)
+* Insights de empresa: PE, EPS, ingresos, noticias y sentimiento
+* Flujos automatizados: resúmenes diarios, notificaciones de earnings
+* Panel de administración para publicar noticias y gestionar usuarios
+* Tests básicos y estructura modular para fácil mantención
+
+---
+
+## 🚀 Quick Start (local)
+
+**Requisitos**: Node.js, npm/yarn, Git
+
+1. Clona el repositorio
+
+```bash
+git clone https://github.com/slyvenegas/market-journal-app.git
+cd market-journal-app
+```
+
+2. Instala dependencias
+
+```bash
+npm install
+```
+
+3. Crea el archivo `.env` en la raíz con las variables (ejemplo):
+
+```
+NODE_ENV='development'
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+
+# FINNHUB
+NEXT_PUBLIC_FINNHUB_API_KEY=
+FINNHUB_BASE_URL=https://finnhub.io/api/v1
+
+# MONGODB
+MONGODB_URI=
+
+# BETTER AUTH
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+
+# GEMINI
+GEMINI_API_KEY=
+
+# NODEMAILER
+NODEMAILER_EMAIL=
+NODEMAILER_PASSWORD=
+```
+
+> **Nota:** Reemplaza los valores por tus credenciales. Para pruebas locales puedes usar servicios gratis o mocks.
+
+4. Ejecuta la app en modo desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# En otra terminal (si usas Inngest local)
+npx inngest-cli@latest dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Estructura recomendada de carpetas
 
-## Learn More
+```
+/src
+  /app (Next.js pages o app router)
+  /components
+  /lib (servicios: finnhub, email)
+  /hooks
+  /pages/api (endpoints)
+  /inngest (workflows)
+  /models (schemas mongoose)
+  /utils
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Agrega pruebas unitarias para la lógica del dominio (ej. alertas y transformación de datos).
+* Recomiendo usar Jest + Testing Library para componentes React y pruebas de funciones.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🖼️ Assets / Demo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Incluye capturas de pantalla en la carpeta `/assets`.
+
+---
+
+## 💡 Mejores prácticas y mejoras sugeridas
+
+* Externalizar claves en Secret Manager para deploys
+* Añadir integración CI (GitHub Actions) con lint, build y tests
+* Cobertura de tests para workflows (Inngest)
+* Implementar caching y optimizaciones en las consultas de Finnhub
+* Añadir PWA y notificaciones push para alerts en tiempo real
+
+---
