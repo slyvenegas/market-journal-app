@@ -12,6 +12,9 @@ MJ App es una aplicación de mercado de valores diseñada para monitorear precio
 
 ---
 
+<img width="1365" height="642" alt="image" src="https://github.com/user-attachments/assets/a0306f53-9943-4f09-a563-427360ee299b" />
+
+
 ## 🔋 Tech Stack
 
 * **Frontend:** Next.js, React, Shadcn, Tailwind CSS, TypeScript
