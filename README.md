@@ -1,8 +1,6 @@
 # Market Journal App
 
-> **Stock Market App — Alerts, Charts, AI Insights**
->
-> Aplicación financiera moderna con Next.js, TypeScript, Shadcn y funcionalidades impulsadas por IA para alertas, resúmenes y análisis en tiempo real.
+> > Aplicación financiera moderna con Next.js, TypeScript, Shadcn y funcionalidades impulsadas por IA para alertas, resúmenes y análisis en tiempo real.
 
 ---
 
@@ -13,6 +11,9 @@ MJ App es una aplicación de mercado de valores diseñada para monitorear precio
 ---
 
 <img width="1365" height="642" alt="image" src="https://github.com/user-attachments/assets/a0306f53-9943-4f09-a563-427360ee299b" />
+<br>
+<img width="1358" height="647" alt="image" src="https://github.com/user-attachments/assets/22e134ce-ebb0-4604-8496-4c38651ec3d5" />
+
 
 
 ## 🔋 Tech Stack
