@@ -1,34 +1,25 @@
-'use client'
+import Link from "next/link";
+import Image from "next/image";
+import NavItems from "@/components/NavItems";
+import UserDropdown from "@/components/UserDropdown";
+import {searchStocks} from "@/lib/actions/finnhub.actions";
 
-import Image from "next/image"
-import Link from "next/link"
-import NavItems from "./NavItems"
-import UserDropdown from "./UserDropdown"
-import { useRouter } from "next/navigation"
+const Header = async ({ user }: { user: User }) => {
+    const initialStocks = await searchStocks();
 
+    return (
+        <header className="sticky top-0 header">
+            <div className="container header-wrapper">
+                <Link href="/">
+                    <Image src="https://avatars.githubusercontent.com/u/113441996?v=4" alt="Market Journal logo" width={140} height={32} className="h-8 w-auto cursor-pointer" />
+                </Link>
+                <nav className="hidden sm:block">
+                    <NavItems initialStocks={initialStocks} />
+                </nav>
 
-
-const Header = () => {
-  const router = useRouter();
-
-  const handleSignOut = async () => {
-    router.push('/sign-in');
-  }
-
-
-  return (
-    <header className="sticky top-0 header">
-        <div className="container header-wrapper">
-            <Link href="/">
-                <Image src="/assets/icons/logo.svg" alt="Market Journal Logo" width={140} height={32}  className="h-8 w-auto cursor-pointer"/>
-            </Link>
-            <nav className="hidden sm:block">
-                < NavItems />
-            </nav>
-            <UserDropdown />
-        </div>
-    </header>
-  )
+                <UserDropdown user={user} initialStocks={initialStocks} />
+            </div>
+        </header>
+    )
 }
-
 export default Header

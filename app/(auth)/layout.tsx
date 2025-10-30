@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-
-
+import {auth} from "@/lib/better-auth/auth";
+import {headers} from "next/headers";
+import {redirect} from "next/navigation";
 
 const Layout = async ({ children }: { children : React.ReactNode }) => {
-   
+    const session = await auth.api.getSession({ headers: await headers() })
 
-
+    if(session?.user) redirect('/')
 
     return (
         <main className="auth-layout">
@@ -21,12 +22,12 @@ const Layout = async ({ children }: { children : React.ReactNode }) => {
             <section className="auth-right-section">
                 <div className="z-10 relative lg:mt-4 lg:mb-16">
                     <blockquote className="auth-blockquote">
-                        MJ App es una aplicación de mercado de valores diseñada para monitorear precios en tiempo real, gestionar watchlists, recibir alertas personalizadas y explorar insights financieros generados por IA. Incluye un panel de administración para gestionar acciones, noticias y actividad de usuarios. Los flujos en background (Inngest) permiten automatizar alertas, resúmenes diarios y análisis de sentimiento.
+                        Signalist turned my watchlist into a winning list. The alerts are spot-on, and I feel more confident making moves in the market
                     </blockquote>
                     <div className="flex items-center justify-between">
                         <div>
-                            <cite className="auth-testimonial-author">- Sly V.</cite>
-                            <p className="max-md:text-xs text-gray-500">Web Developer & Trader</p>
+                            <cite className="auth-testimonial-author">- Ethan R.</cite>
+                            <p className="max-md:text-xs text-gray-500">Retail Investor</p>
                         </div>
                         <div className="flex items-center gap-0.5">
                             {[1, 2, 3, 4, 5].map((star) => (
