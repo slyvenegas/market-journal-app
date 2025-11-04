@@ -17,8 +17,8 @@ export const sendWelcomeEmail = async ({ email, name, intro }: WelcomeEmailData)
     const mailOptions = {
         from: `"Market Journal" <venegasly@gmail.com>`,
         to: email,
-        subject: `Welcome to Market Journal App - your stock market toolkit is ready!`,
-        text: 'Thanks for joining Market Journal App',
+        subject: `Bienvenido a tu Market Journal App - tu guia diaria del mercado 📈`,
+        text: 'Gracias por unirte a Market Journal App',
         html: htmlTemplate,
     }
 
