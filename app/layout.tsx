@@ -59,7 +59,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   // Título que aparece en la pestaña del navegador y en resultados de Google
   // "Signalist" es el nombre de tu aplicación
-  title: "Signalist",
+  title: "Market Journal App",
   
   // Descripción que aparece en resultados de búsqueda
   // Resume las características principales de tu app
