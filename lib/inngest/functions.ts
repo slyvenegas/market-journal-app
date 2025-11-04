@@ -5,7 +5,6 @@ import {getAllUsersForNewsEmail} from "@/lib/actions/user.actions";
 import { getWatchlistSymbolsByEmail } from "@/lib/actions/watchlist.actions";
 import { getNews } from "@/lib/actions/finnhub.actions";
 import { getFormattedTodayDate } from "@/lib/utils";
-import { UserForNewsEmail } from '@/lib/types';
 
 export const sendSignUpEmail = inngest.createFunction(
     { id: 'sign-up-email' },
